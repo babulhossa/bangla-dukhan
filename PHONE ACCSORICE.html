@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bangla Dukan - Our Products</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" defer></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">Bangla Dukan</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html#cart">Cart</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section class="container my-5">
+        <h2 class="text-center">Our Products</h2>
+        <div class="row" id="product-list"></div>
+    </section>
+    
+    <script>
+        const whatsappNumber = "+8801234567890";
+        const products = [
+            { name: "Samsung Galaxy S21", image: "product1.jpg", price: 799 },
+            { name: "iPhone 13 Pro", image: "product2.jpg", price: 999 },
+            { name: "OnePlus 9", image: "product3.jpg", price: 699 },
+            { name: "Google Pixel 6", image: "product4.jpg", price: 599 },
+            { name: "Xiaomi Mi 11", image: "product5.jpg", price: 649 },
+            { name: "Samsung Galaxy S22", image: "product6.jpg", price: 899 },
+            { name: "iPhone 14 Pro", image: "product7.jpg", price: 1099 },
+            { name: "OnePlus 10", image: "product8.jpg", price: 749 },
+            { name: "Google Pixel 7", image: "product9.jpg", price: 699 },
+            { name: "Xiaomi Mi 12", image: "product10.jpg", price: 799 },
+            { name: "Realme GT 2", image: "product11.jpg", price: 599 },
+            { name: "Asus ROG Phone 5", image: "product12.jpg", price: 999 },
+            { name: "Huawei P50 Pro", image: "product13.jpg", price: 899 },
+            { name: "Vivo X70 Pro", image: "product14.jpg", price: 849 },
+            { name: "Oppo Find X3", image: "product15.jpg", price: 799 }
+        ];
+
+        for (let i = 16; i <= 65; i++) {
+            products.push({ name: `Smartphone ${i}`, image: `product${i}.jpg`, price: 500 + (i * 10) });
+        }
+
+        const accessories = [
+            { name: "Wireless Earbuds", image: "accessory1.jpg", price: 59 },
+            { name: "Fast Charger", image: "accessory2.jpg", price: 25 },
+            { name: "Phone Case", image: "accessory3.jpg", price: 15 },
+            { name: "Screen Protector", image: "accessory4.jpg", price: 10 },
+            { name: "Bluetooth Speaker", image: "accessory5.jpg", price: 79 },
+            { name: "Smartwatch", image: "accessory6.jpg", price: 199 },
+            { name: "Power Bank", image: "accessory7.jpg", price: 45 },
+            { name: "Car Phone Mount", image: "accessory8.jpg", price: 20 },
+            { name: "USB-C Cable", image: "accessory9.jpg", price: 12 },
+            { name: "Wireless Charging Pad", image: "accessory10.jpg", price: 35 }
+        ];
+
+        const productList = document.getElementById("product-list");
+        [...products, ...accessories].forEach(product => {
+            let whatsappLink = `https://wa.me/${whatsappNumber}?text=I%20want%20to%20buy%20${encodeURIComponent(product.name)}%20for%20$${product.price}`;
+            
+            productList.innerHTML += `
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <img src="${product.image}" class="card-img-top" alt="${product.name}">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">${product.name}</h5>
+                            <p class="card-text">$${product.price}.00</p>
+                            <a href="${whatsappLink}" target="_blank" class="btn btn-success">Order on WhatsApp</a>
+                        </div>
+                    </div>
+                </div>`;
+        });
+    </script>
+
+    <footer class="bg-dark text-white text-center py-3">
+        <p>&copy; 2025 Bangla Dukan. All rights reserved.</p>
+    </footer>
+</body>
+</html>
